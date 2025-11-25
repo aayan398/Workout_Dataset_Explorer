@@ -1,3 +1,4 @@
+package oop.dataset.project;
 public class WorkoutRecord {
 
     private int sessionId;

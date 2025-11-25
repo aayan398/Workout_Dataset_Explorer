@@ -1,4 +1,4 @@
-
+package oop.dataset.project;
 import javax.swing.*;
 import java.awt.*;
 import java.io.File;
@@ -10,7 +10,7 @@ public class DatasetExplorerFrame extends JFrame {
 
     public DatasetExplorerFrame() {
         super("Dataset Explorer (Half Done)");
-        setSize(800, 500);
+        setSize(800, 500); 
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
 
