@@ -1,10 +1,12 @@
+//handles loading sgtoring calculating and stats for workout data
+
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
 public class WorkoutDataset {
-
+    //record holds all workout rec objs
     private List<WorkoutRecord> records = new ArrayList<>();
     private File dataFile;
 
@@ -23,7 +25,7 @@ public class WorkoutDataset {
         while (scanner.hasNextLine()) {
             String line = scanner.nextLine().trim();
             if (line.isEmpty()) continue;
-
+            //Splits each line into fields using whitespace.
             String[] p = line.split("\\s+");
             if (p.length < 7) continue;
 
@@ -37,14 +39,14 @@ public class WorkoutDataset {
                     p[5],                    // Intensity
                     p[6]                     // Day
             );
-            //adds new rec to list 
+            //adds new rec to list of others 
             records.add(rec);
         }
         scanner.close();
     }
 
     public List<WorkoutRecord> getRecords() {
-        // return a copy of the list (same objects)
+        // return a new list with (same record objects)
         return new ArrayList<>(records);
     }
 
@@ -55,9 +57,10 @@ public class WorkoutDataset {
     }
 
     public double getAverageDuration() {
-        if (records.isEmpty()) return 0.0;
-        double sum = 0;
-        for (WorkoutRecord r : records) sum += r.getDurationMinutes();
+        if (records.isEmpty()) return 0.0;//atops division by 0 error
+        double sum = 0; //Creates a variable to hold the total of all durations.
+        //for each record in array 
+        for (WorkoutRecord r : records) sum += r.getDurationMinutes(); //working with elements dont need index 
         return sum / records.size();
     }
 

@@ -1,3 +1,5 @@
+//launches gui on edt 
+
 import javax.swing.SwingUtilities;
 
 public class Main {

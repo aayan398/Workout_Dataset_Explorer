@@ -1,0 +1,11 @@
+Session_ID Workout Duration_min Avg_HeartRate Calories Intensity Day
+1 Running 30 145 320 High Monday
+2 Cycling 45 132 410 Medium Tuesday
+3 Yoga 40 95 180 Low Wednesday
+4 Weights 50 125 360 Medium Thursday
+5 HIIT 25 155 390 High Friday
+6 Swimming 35 138 300 Medium Saturday
+7 Walking 60 105 220 Low Sunday
+8 Boxing 40 150 450 High Monday
+9 Pilates 45 100 210 Low Tuesday
+10 Rowing 30 142 330 High Wednesday

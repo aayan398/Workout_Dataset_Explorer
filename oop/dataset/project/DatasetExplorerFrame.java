@@ -1,3 +1,6 @@
+//general gui and viewing and interact
+
+
 import javax.swing.*;
 import java.awt.*;
 import java.io.File;
@@ -18,6 +21,7 @@ public class DatasetExplorerFrame extends JFrame {
         initGui();
     }
 
+    //building the ui
     private void initGui() {
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setSize(900, 550);
@@ -25,8 +29,8 @@ public class DatasetExplorerFrame extends JFrame {
         setLayout(new BorderLayout(10, 10));
 
         // centre: data display
-        dataArea = new JTextArea();
-        dataArea.setEditable(false);
+        dataArea = new JTextArea(); //record printed text form 
+        dataArea.setEditable(false);//cant write 
         dataArea.setFont(new Font("Monospaced", Font.PLAIN, 12));
         add(new JScrollPane(dataArea), BorderLayout.CENTER);
 
@@ -41,8 +45,8 @@ public class DatasetExplorerFrame extends JFrame {
 
         // row 1: load + add row
         JPanel row1 = new JPanel(new FlowLayout(FlowLayout.LEFT));
-        JButton loadButton = new JButton("Load Dataset");
-        JButton addRowButton = new JButton("Add Row");
+        JButton loadButton = new JButton("Load Dataset"); // open file chooser 
+        JButton addRowButton = new JButton("Add Row");//open dialog to add a new rec manually
         row1.add(loadButton);
         row1.add(addRowButton);
         topPanel.add(row1);
@@ -50,9 +54,9 @@ public class DatasetExplorerFrame extends JFrame {
         // row 2: search
         JPanel row2 = new JPanel(new FlowLayout(FlowLayout.LEFT));
         row2.add(new JLabel("Search term:"));
-        searchField = new JTextField(12);
-        JButton searchButton = new JButton("Search");
-        searchResultLabel = new JLabel("Occurrences: 0");
+        searchField = new JTextField(12);//type term 
+        JButton searchButton = new JButton("Search");//triggers search
+        searchResultLabel = new JLabel("Occurrences: 0");//shows amnt rows have term 
         row2.add(searchField);
         row2.add(searchButton);
         row2.add(searchResultLabel);
@@ -60,7 +64,7 @@ public class DatasetExplorerFrame extends JFrame {
 
         add(topPanel, BorderLayout.NORTH);
 
-        // actions
+        // actions/event listeners
         loadButton.addActionListener(e -> onLoadDataset());
         addRowButton.addActionListener(e -> onAddRow());
         searchButton.addActionListener(e -> onSearch());
@@ -95,6 +99,8 @@ public class DatasetExplorerFrame extends JFrame {
             dataArea.setText("No data loaded.");
             return;
         }
+
+        //stringbuffer would slow down the project its for many threads 
         StringBuilder sb = new StringBuilder();
         sb.append(String.format("%-8s\t%-8s\t%-4s\t%-4s\t%-5s\t%-8s\t%-10s%n",
                 "Sess_ID", "Type", "Dur", "HR", "Cal", "Intens.", "Day"));

@@ -1,3 +1,5 @@
+//Reps one row in data sets 
+
 public class WorkoutRecord {
 
     private int sessionId;
@@ -37,7 +39,8 @@ public class WorkoutRecord {
                 calories, intensity, day);
     }
 
-    // Format for saving back into the data file
+    // converts record to data line for file storage
+    //converts into a single line of text that matches the exact format used in the dataset file.
     public String toDataLine() {
         return sessionId + " " + workout + " " + durationMinutes + " "
                 + avgHeartRate + " " + calories + " " + intensity + " " + day;
